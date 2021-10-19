@@ -101,9 +101,18 @@ include("users.php");
                                     <input type="text" id="user_signature" name="user_signature" placeholder="Signature" value="<?php echo $result->user_signature ?>" class="form-control">
                                 </div>
                                 <div class="md-form mb-4" style="position:relative;">
-                                    <input type="file" id="profile_pic" name="profile_pic" placeholder="Profile Pic" class="form-control" style="display:none;">
                                     <input type="hidden" id="profile_pic_path" name="profile_pic_path" value="<?php echo $result->profile_pic ?>">
-                                    <img class="updateProfilePic" src="<?php echo $result->profile_pic ?>" width="200"><span class="removeImage"  onclick="removeImage(this)">x</span>
+                                    <?php if(!$result->profile_pic){ ?>
+                                        <input type="file" id="profile_pic" name="profile_pic" placeholder="Profile Pic" class="form-control">
+                                        <img class="updateProfilePic" src="<?php echo $result->profile_pic ?>" width="200"><span class="removeImage d-none"  onclick="removeImage(this)">x</span>
+                                    <?php }else{ ?>
+                                        <input type="file" id="profile_pic" name="profile_pic" placeholder="Profile Pic" class="form-control" style="display:none;">
+                                        <img class="updateProfilePic" src="<?php echo $result->profile_pic ?>" width="200"><span class="removeImage"  onclick="removeImage(this)">x</span>
+                                    <?php } ?>
+
+                                    
+                                    
+                                    
                                 </div>
                                 <div class="md-form mb-4">
                                     <textarea name="address" id="address" class="form-control" rows="5"  placeholder="Address"><?php echo $result->address ?></textarea>
