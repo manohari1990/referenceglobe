@@ -11627,3 +11627,6 @@ span.pagination, a.pagination{
 span.pagination{
   background-color: #3b1a0d;
 }
+button.close{
+  color:#000;
+}

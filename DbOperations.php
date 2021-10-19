@@ -34,7 +34,7 @@ class DbOperations{
             $target_dir = "assets/uploads/";
             $target_file = $target_dir . basename($file["profile_pic"]["name"]);
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" && $file["profile_pic"]["size"] < 20000000) {
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" && $file["profile_pic"]["size"] < 2000) {
                 $responseMesg['fileerror'] =  "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
                 $uploadOk = 0;
             }
@@ -278,7 +278,7 @@ class DbOperations{
         $currentDT = new DateTime('NOW');
         $responseMesg = [];
         $newFileName = $form_data['emp_name'].$currentDT->format('YmdHmi').'.'.$form_data['file_type'];
-        $existing_target_file = getcwd().DIRECTORY_SEPARATOR.'assets\uploads\tempfile.pdf'; 
+        $existing_target_file = getcwd().DIRECTORY_SEPARATOR.'assets\uploads\tempfile.'.$form_data['file_type']; 
         if(file_exists($existing_target_file)){
             $new_target_file = getcwd().DIRECTORY_SEPARATOR.'assets\uploads\\'. $newFileName; 
             rename($existing_target_file, $new_target_file);
@@ -329,10 +329,11 @@ class DbOperations{
     }
 
     public function UpdateEmployee($form_data, $file){
+        $customFileName = '';
         $currentDT = new DateTime('NOW');
         $responseMesg = [];
         $newFileName = $form_data['emp_name'].$currentDT->format('YmdHmi').'.'.$form_data['file_type'];
-        $existing_target_file = getcwd().DIRECTORY_SEPARATOR.'assets\uploads\tempfile.pdf'; 
+        $existing_target_file = getcwd().DIRECTORY_SEPARATOR.'assets\uploads\tempfile.'.$form_data['file_type']; 
 
         if(file_exists($existing_target_file)){
             $new_target_file = getcwd().DIRECTORY_SEPARATOR.'assets\uploads\\'. $newFileName; 

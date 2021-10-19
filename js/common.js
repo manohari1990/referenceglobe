@@ -7,6 +7,7 @@ $( function() {
         $('#regApprove').hide();
         $('.updatePassword').hide();
         $('.updateProfilePic').hide();
+        $('label.error').hide();
         $('input:radio[name="gender"]').removeAttr('checked');
     });
     
@@ -156,6 +157,7 @@ function editRecord(id){
                 $('#profile_pic').hide();
                 $('.removeImage').show();
                 $('.updateProfilePic').attr('src', res.profile_pic).show();
+                $('small').hide();
             }
             if(res.status == 0){
                 $('#regApprove').show();

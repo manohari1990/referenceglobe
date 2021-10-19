@@ -148,7 +148,8 @@
                                 <input type="text" id="user_signature" name="user_signature" placeholder="Signature" class="form-control">
                             </div>
                             <div class="md-form mb-4" style="position:relative;">
-                                <input type="file" id="profile_pic" name="profile_pic" placeholder="Profile Pic" class="form-control">
+                                <input type="file" id="profile_pic" name="profile_pic" placeholder="Profile Pic" class="form-control" accept="image/png,image/jpeg,image/jpg">
+                                <small>Allows only jpg, png, jpeg, and gif files</small>
                                 <input type="hidden" id="profile_pic_path" name="profile_pic_path">
                                 <img class="updateProfilePic" src="" width="200"><span class="removeImage" style="display:none;" onclick="removeImage(this)">x</span>
                             </div>

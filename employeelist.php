@@ -66,7 +66,7 @@
                             <button class="btn btn-success" onclick="loadEmployees()">Search</button>
                         </div>
                         <div class="col-sm-2 mb-4 float-right">
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add User</button>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Employee</button>
                         </div>
                     </div>
                 </div>
@@ -124,16 +124,17 @@
                             </div>
                             
                             <div class="md-form mb-4">
-                                <input type="phone" maxlength=10 id="mobile" name="mobile" placeholder="Mobile Number" class="form-control" onkeypress="return isNumberKey(event)">
+                                <input type="phone" maxlength=10 id="mobile" name="mobile" placeholder="Mobile Number" class="form-control" onkeypress="return isNumberKey(event)" required>
                             </div>
                             <div class="md-form mb-4" style="position:relative;">
-                                <input type="file" id="identity_file_path" name="identity_file_path" placeholder="Profile Pic" class="form-control" onchange="checkUpload(this)">
+                                <input type="file" id="identity_file_path" name="identity_file_path" placeholder="Profile Pic" accept="image/png,image/jpeg,image/jpg,.pdf,.doc,.docx" class="form-control" onchange="checkUpload(this)">
+                                <small>Allows only jpg, png, jpeg, pdf, doc and docx files</small>
                                 <input type="hidden" id="identity_file" name="identity_file">
                                 <input type="hidden" id="file_type" name="file_type">
                                 <iframe id="iframe_file" src="" style="display:none;margin-top:15px;" width="100%" height="200"></iframe>
                             </div>
                             <div class="md-form mb-4">
-                                <textarea name="emp_address" id="emp_address" class="form-control" rows="5" placeholder="Address"></textarea>
+                                <textarea name="emp_address" id="emp_address" class="form-control" rows="5" placeholder="Address" required></textarea>
                             </div>
                             <button type="submit" name="submit" class="btn btn-primary">Save</button>
                             
